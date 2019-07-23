@@ -1,4 +1,5 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom'
 
 import FormInput from '../form-input'
 import CustomButton from '../custom-button'
@@ -32,12 +33,7 @@ class SignUp extends React.Component {
       )
       await createUserProfileDocument(user, { displayName })
 
-      this.setState({
-        displayName: '',
-        email: '',
-        password: '',
-        confirmPassword: '',
-      })
+      this.props.history.push('/')
     } catch (e) {
       console.log('error creating user', e.message)
     }
@@ -101,4 +97,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp
+export default withRouter(SignUp)
