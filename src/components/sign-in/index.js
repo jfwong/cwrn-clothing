@@ -1,5 +1,4 @@
 import React from 'react'
-import { withRouter } from 'react-router-dom'
 
 import FormInput from '../form-input'
 import CustomButton from '../custom-button'
@@ -21,8 +20,6 @@ class SignIn extends React.Component {
 
     try {
       await auth.signInWithEmailAndPassword(email, password)
-
-      this.props.history.push('/')
     } catch (e) {
       console.log('error logging in', e.message)
     }
@@ -73,4 +70,4 @@ class SignIn extends React.Component {
   }
 }
 
-export default withRouter(SignIn)
+export default SignIn
